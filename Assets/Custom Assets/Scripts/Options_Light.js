@@ -12,6 +12,7 @@ function Start () {
 	mainlight = GameObject.Find("Main Light").light.intensity;
 	optionslight = GameObject.Find("Options Light").light.intensity;
 	creditslight = GameObject.Find("Credits Light").light.intensity;
+	Screen.showCursor = false;
 }
 
 function Update(){
