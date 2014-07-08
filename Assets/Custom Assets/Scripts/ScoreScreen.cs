@@ -48,12 +48,12 @@ public class ScoreScreen : MonoBehaviour {
 				showing = false;
 				Time.timeScale = 1;
 				currentLevel++;
-				if (greenWins >= 2) {
+				if (greenWins >= 3) {
 					greenTotalWins++;
 					greenWins = 0;
 					orangeWins = 0;
 					currentLevel = 1;
-				} else if (orangeWins >= 2) {
+				} else if (orangeWins >= 3) {
 					orangeTotalWins++;
 					greenWins = 0;
 					orangeWins = 0;
