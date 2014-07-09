@@ -29,11 +29,11 @@ public class PowerUp : MonoBehaviour {
 		if (Collection.gameObject.name == "Player Left") {
 			switch (type) {
 			case 0:
-				Collection.gameObject.GetComponent<Player>().increaseSize(0.25f);
+				Collection.gameObject.GetComponent<Player>().increaseSize(0.15f);
 				break;
 				
 			case 1:
-				Collection.gameObject.GetComponent<Player>().increaseSize(-0.15f);
+				Collection.gameObject.GetComponent<Player>().increaseSize(-0.10f);
 				break;
 				
 			case 2:
