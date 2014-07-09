@@ -57,11 +57,11 @@ public class Scores : MonoBehaviour {
 		livesNumber.guiText.text = lives.ToString();
 
 		if (Score == eScore.Green) scoreScreen.greenLives = lives;
-		else scoreScreen.orangeLives = lives;
+		else if (Score == eScore.Orange) scoreScreen.orangeLives = lives;
 
 		if (lives <= 0) {
 			if (Score == eScore.Green) scoreScreen.orangeWins++;
-			else scoreScreen.greenWins++;
+			else if (Score == eScore.Orange) scoreScreen.greenWins++;
 
 			scoreScreen.activate();
 		}
