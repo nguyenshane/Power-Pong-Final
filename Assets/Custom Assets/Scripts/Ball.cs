@@ -72,7 +72,7 @@ public class Ball : MonoBehaviour {
 				} else if (rigidbody.position.y == height) {
 					if (rigidbody.velocity.magnitude < minSpeed) {
 						if (rigidbody.velocity.magnitude != 0) {
-							rigidbody.AddForce (rigidbody.velocity * (1 - minSpeed / rigidbody.velocity.magnitude), ForceMode.Impulse);
+							rigidbody.AddForce (rigidbody.velocity * (minSpeed / rigidbody.velocity.magnitude - 1), ForceMode.Impulse);
 						} else {
 							rigidbody.AddForce (initialImpulse, ForceMode.Impulse);
 						}
@@ -100,6 +100,7 @@ public class Ball : MonoBehaviour {
 				Player player = Collection.gameObject.GetComponent<Player>();
 				if (player.transform.localPosition.z + player.transform.localScale.z / 2 > transform.localPosition.z ||
 				    player.transform.localPosition.z - player.transform.localScale.z / 2 < transform.localPosition.z) {
+					transform.position = new Vector3(player.transform.position.x + player.transform.localScale.x / 2 + transform.localScale.x / 2, transform.position.y, transform.position.z);
 					rigidbody.AddForce(rightImpulse, ForceMode.Impulse);
 					rigidbody.AddForce(new Vector3(0, 0, Collection.gameObject.GetComponent<Player>().friction * (Mathf.Abs(transform.localPosition.z - player.transform.localPosition.z) / (player.transform.localScale.z / 2)) * Collection.gameObject.GetComponent<Player>().inputSpeed * 
 						                               Collection.gameObject.GetComponent<Player>().speed), ForceMode.Impulse);
@@ -108,6 +109,7 @@ public class Ball : MonoBehaviour {
 				Player player = Collection.gameObject.GetComponent<Player>();
 				if (player.transform.localPosition.z + player.transform.localScale.z / 2 > transform.localPosition.z ||
 				    player.transform.localPosition.z - player.transform.localScale.z / 2 < transform.localPosition.z) {
+					transform.position = new Vector3(player.transform.position.x - player.transform.localScale.x / 2 - transform.localScale.x / 2, transform.position.y, transform.position.z);
 					rigidbody.AddForce(new Vector3(0, 0, Collection.gameObject.GetComponent<Player>().friction * (Mathf.Abs(transform.localPosition.z - player.transform.localPosition.z) / (player.transform.localScale.z / 2)) * Collection.gameObject.GetComponent<Player>().inputSpeed * 
 					                               Collection.gameObject.GetComponent<Player>().speed), ForceMode.Impulse);
 				}
@@ -139,6 +141,7 @@ public class Ball : MonoBehaviour {
 				Player player = Collection.gameObject.GetComponent<Player>();
 				if (player.transform.localPosition.z + player.transform.localScale.z / 2 > transform.localPosition.z ||
 				    player.transform.localPosition.z - player.transform.localScale.z / 2 < transform.localPosition.z) {
+					transform.position = new Vector3(player.transform.position.x - player.transform.localScale.x / 2 - transform.localScale.x / 2, transform.position.y, transform.position.z);
 					rigidbody.AddForce(leftImpulse, ForceMode.Impulse);
 					rigidbody.AddForce(new Vector3(0, 0, Collection.gameObject.GetComponent<Player>().friction * (Mathf.Abs(transform.localPosition.z - player.transform.localPosition.z) / (player.transform.localScale.z / 2)) * Collection.gameObject.GetComponent<Player>().inputSpeed * 
 					                               Collection.gameObject.GetComponent<Player>().speed), ForceMode.Impulse);
@@ -147,6 +150,7 @@ public class Ball : MonoBehaviour {
 				Player player = Collection.gameObject.GetComponent<Player>();
 				if (player.transform.localPosition.z + player.transform.localScale.z / 2 > transform.localPosition.z ||
 				    player.transform.localPosition.z - player.transform.localScale.z / 2 < transform.localPosition.z) {
+					transform.position = new Vector3(player.transform.position.x + player.transform.localScale.x / 2 + transform.localScale.x / 2, transform.position.y, transform.position.z);
 					rigidbody.AddForce(new Vector3(0, 0, Collection.gameObject.GetComponent<Player>().friction * (Mathf.Abs(transform.localPosition.z - player.transform.localPosition.z) / (player.transform.localScale.z / 2)) * Collection.gameObject.GetComponent<Player>().inputSpeed * 
 					                               Collection.gameObject.GetComponent<Player>().speed), ForceMode.Impulse);
 				}
