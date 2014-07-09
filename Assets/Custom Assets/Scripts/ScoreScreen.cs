@@ -12,12 +12,22 @@ public class ScoreScreen : MonoBehaviour {
 
 	public int greenLives, orangeLives, greenScore, orangeScore, greenWins, orangeWins, greenTotalWins, orangeTotalWins;
 
+	static int instanceCount = 0;
+
 	int padding = 0;
 	int width = 200;
 	bool showing;
 
 	// Use this for initialization
 	void Start () {
+		instanceCount++;
+
+		if (instanceCount > 1) {
+			instanceCount--;
+			Destroy(gameObject);
+			return;
+		}
+
 		greenLives = orangeLives = greenScore = orangeScore = greenWins = orangeWins = greenTotalWins = orangeTotalWins = 0;
 		showing = false;
 		DontDestroyOnLoad(transform.gameObject);
@@ -47,13 +57,14 @@ public class ScoreScreen : MonoBehaviour {
 			if (GUI.Button (new Rect (Screen.width / 2 - 100, Screen.height - 120, 240, 60), "C o n ti n u e", button)) {
 				showing = false;
 				Time.timeScale = 1;
+				Screen.showCursor = false;
 				currentLevel++;
-				if (greenWins >= 3) {
+				if (greenWins >= 2) {
 					greenTotalWins++;
 					greenWins = 0;
 					orangeWins = 0;
 					currentLevel = 1;
-				} else if (orangeWins >= 3) {
+				} else if (orangeWins >= 2) {
 					orangeTotalWins++;
 					greenWins = 0;
 					orangeWins = 0;
@@ -68,12 +79,14 @@ public class ScoreScreen : MonoBehaviour {
 					orangeWins = 0;
 					currentLevel = 1;
 				}
+				
 				Application.LoadLevel(currentLevel);
 			}
 		}
 	}
 	
 	public void activate() {
+		Screen.showCursor = true;
 		Time.timeScale = 0;
 		showing = true;
 	}
