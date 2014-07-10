@@ -138,7 +138,7 @@ public class Ball : MonoBehaviour {
 					Destroy(gameObject);	
 				}
 			} else if (Collection.gameObject.name == "Green_Goal") {
-				int points = (int)(score.GetComponent<Scores>().getScore () * goalPointPercentage);
+				//int points = (int)(score.GetComponent<Scores>().getScore () * goalPointPercentage);
 				//score.GetComponent<Scores>().AddScore(-1*points);
 				score.GetComponent<Scores>().RemoveLife();
 				int lives = (int)(score.GetComponent<Scores>().getLives ());
@@ -192,7 +192,7 @@ public class Ball : MonoBehaviour {
 					Destroy(gameObject);	
 				}
 			} else if (Collection.gameObject.name == "Orange_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
-				int points = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
+				//int points = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
 				//score.GetComponent<Scores>().AddScore(-1*points);
 				score.GetComponent<Scores>().RemoveLife();
 				int lives = (int)(score.GetComponent<Scores>().getLives ());
