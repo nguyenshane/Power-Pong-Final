@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
   m_Layer: 0
-  m_Name: BallG
+  m_Name: BallO 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 401.649994, z: 0}
+  m_LocalPosition: {x: 13.0850449, y: 401.649994, z: 3.57627869e-07}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 38e180a48ff7c436ba1d33abcde69f44, type: 2}
+  - {fileID: 2100000, guid: 8c5716113047d40b0b402e3fb574ce32, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -84,8 +84,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 3ae8ae0505d2c44b99c958c9ab0ddbe2, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -147,14 +147,14 @@ MonoBehaviour:
   score: {fileID: 0}
   otherScore: {fileID: 0}
   paddle: {fileID: 0}
-  initialImpulse: {x: -12, y: 0, z: -4}
-  dropLocation: {x: -12, y: 80, z: 0}
+  initialImpulse: {x: 20, y: 0, z: 1}
+  dropLocation: {x: 12, y: 160, z: 0}
   dropSpeed: -20
   height: 1.64999998
-  maxSpeed: 48
+  maxSpeed: 50
   minSpeed: 24
-  initialDropDelay: 3
-  ball: 0
+  initialDropDelay: 4
+  ball: 1
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

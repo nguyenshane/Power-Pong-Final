@@ -73,7 +73,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 116
+  m_Constraints: 4
   m_CollisionDetection: 2
 --- !u!82 &8200000
 AudioSource:
@@ -152,7 +152,7 @@ MonoBehaviour:
   dropSpeed: -20
   height: 1.64999998
   maxSpeed: 48
-  minSpeed: 12
+  minSpeed: 24
   initialDropDelay: 3
   ball: 1
 --- !u!135 &13500000

@@ -127,11 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e23654d5a6a41fcb977e82f2f5add5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Score: 1
   scoreNumber: {fileID: 100002}
   livesNumber: {fileID: 100000}
-  nextLevel: lEVEL2
   goalSpeedMultiplier: .200000003
-  maxLives: 5
+  maxLives: 3
 --- !u!132 &13200000
 GUIText:
   m_ObjectHideFlags: 1
@@ -163,7 +163,7 @@ GUIText:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 24
+  m_Text: 0
   m_Anchor: 0
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
