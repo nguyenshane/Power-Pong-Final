@@ -92,11 +92,11 @@ public class Player : MonoBehaviour {
 			if (reactionTimer <= 0f) {
 				reactionTimer = reactionTime;
 				
-				Vector3 b1pos = b1.transform.position;// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
-				Vector3 b2pos = b2.transform.position;// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
+				Vector3 b1pos = b1.transform.position;
+				Vector3 b2pos = b2.transform.position;
 				
-				Vector3 b1vel = b1.rigidbody.velocity * (1 + Random.Range(-accuracy, accuracy));// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
-				Vector3 b2vel = b2.rigidbody.velocity * (1 + Random.Range(-accuracy, accuracy));// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
+				Vector3 b1vel = new Vector3(b1.rigidbody.velocity.x * (1 + Random.Range(-accuracy, accuracy)), b1.rigidbody.velocity.y * (1 + Random.Range(-accuracy, accuracy)), b1.rigidbody.velocity.z * (1 + Random.Range(-accuracy, accuracy)));
+				Vector3 b2vel = new Vector3(b2.rigidbody.velocity.x * (1 + Random.Range(-accuracy, accuracy)), b2.rigidbody.velocity.y * (1 + Random.Range(-accuracy, accuracy)), b2.rigidbody.velocity.z * (1 + Random.Range(-accuracy, accuracy)));
 
 				float z = transform.position.z;
 				float x = transform.position.x;
