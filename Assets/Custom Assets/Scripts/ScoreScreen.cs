@@ -69,10 +69,10 @@ public class ScoreScreen : MonoBehaviour {
 	}
 	
 	public void activate() {
-		if (greenWins > maxLevels / 2 + maxLevels % 2) {
+		if (greenWins >= maxLevels / 2 + maxLevels % 2) {
 			greenTotalWins++;
 			currentLevel = 1;
-		} else if (orangeWins > maxLevels / 2 + maxLevels % 2) {
+		} else if (orangeWins >= maxLevels / 2 + maxLevels % 2) {
 			orangeTotalWins++;
 			currentLevel = 1;
 		} else {
