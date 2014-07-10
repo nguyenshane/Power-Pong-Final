@@ -92,9 +92,11 @@ public class Ball : MonoBehaviour {
 				Destroy(Collection.gameObject);
 				score.GetComponent<Scores>().AddScore(normalBrickScore);
 			} else if (Collection.gameObject.name == "Brick_O") {
+				GameObject.Find("ExplosionSound").audio.Play();
 				Destroy(Collection.gameObject);
 				score.GetComponent<Scores>().AddScore(goalBrickScore);
 			} else if (Collection.gameObject.name == "Brick_G") {
+				GameObject.Find("ExplosionSound").audio.Play();
 				Destroy(Collection.gameObject);
 			} else if (Collection.gameObject.name == "Player Left") {
 				Player player = Collection.gameObject.GetComponent<Player>();
@@ -133,9 +135,11 @@ public class Ball : MonoBehaviour {
 				Destroy(Collection.gameObject);
 				score.GetComponent<Scores>().AddScore(normalBrickScore);
 			} else if (Collection.gameObject.name == "Brick_G") {
+				GameObject.Find("ExplosionSound").audio.Play();
 				Destroy(Collection.gameObject);
 				score.GetComponent<Scores>().AddScore(goalBrickScore);
 			} else if (Collection.gameObject.name == "Brick_O") {
+				GameObject.Find("ExplosionSound").audio.Play();
 				Destroy(Collection.gameObject);
 			} else if (Collection.gameObject.name == "Player Right") {
 				Player player = Collection.gameObject.GetComponent<Player>();
