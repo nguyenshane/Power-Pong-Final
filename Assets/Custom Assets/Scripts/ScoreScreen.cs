@@ -113,6 +113,14 @@ public class ScoreScreen : MonoBehaviour {
 		}
 	}
 
+	public int getCurrentLevel() {
+		return currentLevel;
+	}
+
+	public void setCurrentLevel(int one) {
+		currentLevel = one;
+	}
+
 	public void handleScore() {
 		if (greenLives + orangeLives <= 0) {
 			if (greenScore >= orangeScore) {
