@@ -25,10 +25,35 @@ public class Scores : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		scoreScreen = GameObject.Find ("ScoreScreen").GetComponent<ScoreScreen> ();
+
+		if (Score == eScore.Green) {
+			switch (ScoreScreen.greenLivesSelection) {
+			case 0:
+				maxLives = 3;
+				break;
+
+			case 1:
+				maxLives = 5;
+				break;
+			}
+		} else {
+			switch (ScoreScreen.orangeLivesSelection) {
+			case 0:
+				maxLives = 3;
+				break;
+				
+			case 1:
+				maxLives = 5;
+				break;
+			}
+		}
+
 		score = 0;
 		lives = maxLives;
+		scoreNumber.guiText.text = score.ToString();
+		livesNumber.guiText.text = lives.ToString();
 		currentMultiplier = 1;
-		scoreScreen = GameObject.Find ("ScoreScreen").GetComponent<ScoreScreen> ();
 	}
 	
 	// Update is called once per frame
@@ -53,18 +78,21 @@ public class Scores : MonoBehaviour {
 	}
 
 	public void RemoveLife() {
-		lives--;
+		if (lives > 0 ) {
+			lives--;
+		}
 		livesNumber.guiText.text = lives.ToString();
 
 		if (Score == eScore.Green) scoreScreen.greenLives = lives;
 		else if (Score == eScore.Orange) scoreScreen.orangeLives = lives;
 
-		if (lives <= 0) {
-			if (Score == eScore.Green) scoreScreen.orangeWins++;
-			else if (Score == eScore.Orange) scoreScreen.greenWins++;
+		//if (lives <= 0) {
+			//if (Score == eScore.Green) scoreScreen.orangeWins++;
+			//else if (Score == eScore.Orange) scoreScreen.greenWins++;
 
-			scoreScreen.activate();
-		}
+			//scoreScreen.activate();
+			scoreScreen.handleScore();
+		//}
 	}
 
 	public int getLives() {

@@ -31,7 +31,57 @@ public class Player : MonoBehaviour {
 	void Start() {
 		b1 = ball1.GetComponent<Ball>();
 		b2 = ball2.GetComponent<Ball>();
-		
+
+		if (player == ePlayer.Left) {
+			switch (ScoreScreen.greenAISelection) {
+			case 0:
+				AIEnabled = false;
+				break;
+
+			case 1:
+				AIEnabled = true;
+				reactionTime = 0.75f;
+				accuracy = 1.0f;
+				break;
+
+			case 2:
+				AIEnabled = true;
+				reactionTime = 0.4f;
+				accuracy = 0.5f;
+				break;
+
+			case 3:
+				AIEnabled = true;
+				reactionTime = 0.2f;
+				accuracy = 0.1f;
+				break;
+			}
+		} else {
+			switch (ScoreScreen.orangeAISelection) {
+			case 0:
+				AIEnabled = false;
+				break;
+				
+			case 1:
+				AIEnabled = true;
+				reactionTime = 0.75f;
+				accuracy = 1.0f;
+				break;
+				
+			case 2:
+				AIEnabled = true;
+				reactionTime = 0.4f;
+				accuracy = 0.5f;
+				break;
+				
+			case 3:
+				AIEnabled = true;
+				reactionTime = 0.2f;
+				accuracy = 0.1f;
+				break;
+			}
+		}
+
 		reactionTimer = reactionTime;
 	}
 
