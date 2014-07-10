@@ -32,7 +32,8 @@ public class ScoreScreen : MonoBehaviour {
 			return;
 		}
 
-		greenLives = orangeLives = greenScore = orangeScore = greenWins = orangeWins = greenTotalWins = orangeTotalWins = 0;
+		greenLives = orangeLives = 3;
+		greenScore = orangeScore = greenWins = orangeWins = greenTotalWins = orangeTotalWins = 0;
 		showing = false;
 		DontDestroyOnLoad(transform.gameObject);
 	}
@@ -88,6 +89,17 @@ public class ScoreScreen : MonoBehaviour {
 			}
 		}
 	}
+
+	public void handleScore() {
+		if (greenLives + orangeLives <= 0) {
+			if (greenScore >= orangeScore) {
+				greenWins++;
+			} else {
+				orangeWins++;
+			}
+			activate();
+		}
+	}
 	
 	public void activate() {
 		if (greenWins >= maxLevels / 2 + maxLevels % 2) {
@@ -101,6 +113,8 @@ public class ScoreScreen : MonoBehaviour {
 			currentLevel = 0;
 		
 		} else {
+			orangeLives = 3;
+			greenLives = 3;
 			currentLevel++;
 		}
 

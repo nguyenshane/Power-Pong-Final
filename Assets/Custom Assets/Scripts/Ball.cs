@@ -131,12 +131,22 @@ public class Ball : MonoBehaviour {
 				score.GetComponent<Scores>().AddScore(points);
 				//otherScore.GetComponent<Scores>().AddScore(-1*points);
 				otherScore.GetComponent<Scores>().RemoveLife();
-				dropBall(dropLocation);
+				int lives = (int)(score.GetComponent<Scores>().getLives ());
+				if (lives > 0) {
+					dropBall(dropLocation);
+				} else {
+					Destroy(gameObject);	
+				}
 			} else if (Collection.gameObject.name == "Green_Goal") {
 				int points = (int)(score.GetComponent<Scores>().getScore () * goalPointPercentage);
 				//score.GetComponent<Scores>().AddScore(-1*points);
 				score.GetComponent<Scores>().RemoveLife();
-				dropBall(dropLocation);
+				int lives = (int)(score.GetComponent<Scores>().getLives ());
+				if (lives > 0) {
+					dropBall(dropLocation);
+				} else {
+					Destroy(gameObject);	
+				}
 			} else if (Collection.gameObject.name == "Big Wall") {
 				rigidbody.AddForce(leftImpulse, ForceMode.Impulse);
 			}
@@ -175,12 +185,22 @@ public class Ball : MonoBehaviour {
 				score.GetComponent<Scores>().AddScore(points);
 				//otherScore.GetComponent<Scores>().AddScore(-1*points);
 				otherScore.GetComponent<Scores>().RemoveLife();
-				dropBall(dropLocation);
+				int lives = (int)(score.GetComponent<Scores>().getLives());
+				if (lives > 0) {
+					dropBall(dropLocation);
+				} else {
+					Destroy(gameObject);	
+				}
 			} else if (Collection.gameObject.name == "Orange_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
 				int points = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
 				//score.GetComponent<Scores>().AddScore(-1*points);
 				score.GetComponent<Scores>().RemoveLife();
-				dropBall(dropLocation);
+				int lives = (int)(score.GetComponent<Scores>().getLives ());
+				if (lives > 0) {
+					dropBall(dropLocation);
+				} else {
+					Destroy(gameObject);	
+				}
 			} else if (Collection.gameObject.name == "Big Wall") {
 				rigidbody.AddForce(rightImpulse, ForceMode.Impulse);
 			}

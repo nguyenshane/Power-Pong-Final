@@ -53,18 +53,21 @@ public class Scores : MonoBehaviour {
 	}
 
 	public void RemoveLife() {
-		lives--;
+		if (lives > 0 ) {
+			lives--;
+		}
 		livesNumber.guiText.text = lives.ToString();
 
 		if (Score == eScore.Green) scoreScreen.greenLives = lives;
 		else if (Score == eScore.Orange) scoreScreen.orangeLives = lives;
 
-		if (lives <= 0) {
-			if (Score == eScore.Green) scoreScreen.orangeWins++;
-			else if (Score == eScore.Orange) scoreScreen.greenWins++;
+		//if (lives <= 0) {
+			//if (Score == eScore.Green) scoreScreen.orangeWins++;
+			//else if (Score == eScore.Orange) scoreScreen.greenWins++;
 
-			scoreScreen.activate();
-		}
+			//scoreScreen.activate();
+			scoreScreen.handleScore();
+		//}
 	}
 
 	public int getLives() {
