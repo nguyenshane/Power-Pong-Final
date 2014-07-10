@@ -159,8 +159,9 @@ public class ScoreScreen : MonoBehaviour {
 			}
 
 			//Exit button
-			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 100, 240, 60), "Exit", button)) {
-				Application.Quit();
+			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 100, 240, 60), "Menu", button)) {
+				deactivateEscMenu();
+				Application.LoadLevel(0);
 			}
 
 			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 240, width, 40), "Match    Scores: ", label);
