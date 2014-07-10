@@ -90,6 +90,8 @@ public class ScoreScreen : MonoBehaviour {
 				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "S  t a  t u  s", box);
 
 				//Level selection buttons
+				GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 240, width, 40), "Choose next level:", label);
+
 				if (GUI.Button(new Rect(Screen.width / 2 - 300 - 112, Screen.height - 200, 224, 128), level1, blank)) {
 					currentLevel = 1;
 					goToCurrentLevel();
@@ -119,18 +121,18 @@ public class ScoreScreen : MonoBehaviour {
 			//GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 + 120, width, 40), greenTotalWins.ToString() + " : " + orangeTotalWins.ToString(), label);
 
 			//Green lives selections
-			greenLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 - 48, 128, 64), greenLivesSelection, livesOptions, 1, checkboxL);
+			greenLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 + 40, 128, 64), greenLivesSelection, livesOptions, 1, checkboxL);
 
 			//Green AI selections
 			GUI.Label(new Rect(Screen.width / 4 - 60, Screen.height / 2, 256, 256), "Player  1", labelG);
-			greenAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 + 40, 128, 128), greenAISelection, AIOptions, 1, checkboxL);
+			greenAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 - 100, 128, 128), greenAISelection, AIOptions, 1, checkboxL);
 
 			//Orange lives selections
-			orangeLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 48, 128, 64), orangeLivesSelection, livesOptions, 1, checkboxL);
+			orangeLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 + 40, 128, 64), orangeLivesSelection, livesOptions, 1, checkboxL);
 
 			//Orange AI selections
 			GUI.Label(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2, 256, 256), "Player  2", labelO);
-			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 + 40, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
+			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 100, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
 		}
 	}
 
