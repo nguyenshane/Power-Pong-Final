@@ -49,7 +49,7 @@ public class ScoreScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyUp(KeyCode.Escape)) {
+		if (Input.GetKeyUp(KeyCode.Escape) && !showing) {
 			if (!escShowing) activateEscMenu();
 			else deactivateEscMenu();
 		}
