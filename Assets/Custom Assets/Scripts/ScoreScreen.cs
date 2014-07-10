@@ -22,7 +22,7 @@ public class ScoreScreen : MonoBehaviour {
 
 	int padding = 0;
 	int width = 240;
-	bool showing;
+	bool showing, escShowing;
 	bool greenWon = false, orangeWon = false;
 	public static int greenAISelection, orangeAISelection, greenLivesSelection, orangeLivesSelection;
 	public static int levelSelection;
@@ -42,14 +42,17 @@ public class ScoreScreen : MonoBehaviour {
 		greenLives = orangeLives = greenScore = orangeScore = greenWins = orangeWins = greenTotalWins = orangeTotalWins = 0;
 		greenAISelection = orangeAISelection = greenLivesSelection = orangeLivesSelection = 0;
 		levelSelection = -1;
-		showing = false;
+		showing = escShowing = false;
 		DontDestroyOnLoad(transform.gameObject);
 		activate();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKeyUp(KeyCode.Escape)) {
+			if (!escShowing) activateEscMenu();
+			else deactivateEscMenu();
+		}
 	}
 
 	void OnGUI() {
@@ -147,7 +150,24 @@ public class ScoreScreen : MonoBehaviour {
 			//Orange AI selections
 			GUI.Label(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2, 256, 256), "Player  2", labelO);
 			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 100, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
+		} else if (escShowing) {
+			GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "S  t a  t u  s", box);
+			
+			//Continue button
+			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 200, 240, 60), "Continue", button)) {
+				deactivateEscMenu();
+			}
 
+			//Exit button
+			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 100, 240, 60), "Exit", button)) {
+				Application.Quit();
+			}
+
+			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 240, width, 40), "Match    Scores: ", label);
+			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 240, width, 40), greenScore.ToString() + " : " + orangeScore.ToString(), label);
+			
+			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 200, width, 40), "Current    Wins: ", label);
+			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 200, width, 40), greenWins.ToString() + " : " + orangeWins.ToString(), label);
 		}
 	}
 
@@ -194,5 +214,17 @@ public class ScoreScreen : MonoBehaviour {
 		Screen.showCursor = true;
 		Time.timeScale = 0;
 		showing = true;
+	}
+
+	public void activateEscMenu() {
+		Screen.showCursor = true;
+		Time.timeScale = 0;
+		escShowing = true;
+	}
+
+	private void deactivateEscMenu() {
+		Screen.showCursor = false;
+		Time.timeScale = 1;
+		escShowing = false;
 	}
 }
