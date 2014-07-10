@@ -75,7 +75,7 @@ public class ScoreScreen : MonoBehaviour {
 				orangeWon = false;
 
 				//Continue button
-				if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 120, 240, 60), "Main  Menu", button)) {
+				if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 20, 240, 60), "Main  Menu", button)) {
 					greenScore = 0;
 					orangeScore = 0;
 					greenWins = 0;
@@ -109,28 +109,28 @@ public class ScoreScreen : MonoBehaviour {
 			//GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 120, width, 40), "Match    Lives: ", label);
 			//GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 120, width, 40), greenLives.ToString() + " : " + orangeLives.ToString(), label);
 
-			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 40, width, 40), "Match    Scores: ", label);
-			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 40, width, 40), greenScore.ToString() + " : " + orangeScore.ToString(), label);
+			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 240, width, 40), "Match    Scores: ", label);
+			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 240, width, 40), greenScore.ToString() + " : " + orangeScore.ToString(), label);
 
-			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 + 40, width, 40), "Current    Wins: ", label);
-			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 + 40, width, 40), greenWins.ToString() + " : " + orangeWins.ToString(), label);
+			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 200, width, 40), "Current    Wins: ", label);
+			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 200, width, 40), greenWins.ToString() + " : " + orangeWins.ToString(), label);
 
 			//GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 + 120, width, 40), "Total    Wins: ", label);
 			//GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 + 120, width, 40), greenTotalWins.ToString() + " : " + orangeTotalWins.ToString(), label);
 
 			//Green lives selections
-			greenLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 - 48, 128, 64), greenLivesSelection, livesOptions, 1, checkboxL);
+			greenLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 - 148, 128, 64), greenLivesSelection, livesOptions, 1, checkboxL);
 
 			//Green AI selections
-			GUI.Label(new Rect(Screen.width / 4 - 60, Screen.height / 2, 256, 256), "Player  1", labelG);
-			greenAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 + 40, 128, 128), greenAISelection, AIOptions, 1, checkboxL);
+			GUI.Label(new Rect(Screen.width / 4 - 60, Screen.height / 2 - 100, 256, 256), "Player  1", labelG);
+			greenAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 - 60, 128, 128), greenAISelection, AIOptions, 1, checkboxL);
 
 			//Orange lives selections
-			orangeLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 48, 128, 64), orangeLivesSelection, livesOptions, 1, checkboxL);
+			orangeLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 148, 128, 64), orangeLivesSelection, livesOptions, 1, checkboxL);
 
 			//Orange AI selections
-			GUI.Label(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2, 256, 256), "Player  2", labelO);
-			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 + 40, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
+			GUI.Label(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 100, 256, 256), "Player  2", labelO);
+			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 60, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
 		}
 	}
 
