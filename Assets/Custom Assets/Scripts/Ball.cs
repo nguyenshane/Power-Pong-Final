@@ -32,6 +32,7 @@ public class Ball : MonoBehaviour {
 	int goalBrickScore = 12;
 	float goalPointPercentage = 0.20f;
 	float currentDropDelay;
+	bool dontDrop = false;
 
 
 	// Use this for initialization
@@ -46,7 +47,6 @@ public class Ball : MonoBehaviour {
 			else rigidbody.AddForce(rightImpulse_F, ForceMode.Impulse);
 		}
 
-
 		currentDropDelay = initialDropDelay;
 	}
 
@@ -58,7 +58,7 @@ public class Ball : MonoBehaviour {
 			} else if (currentDropDelay == -1000) {
 				dropBall (dropLocation);
 				currentDropDelay = -2000;
-			} else if (currentDropDelay != -2000) {
+			} else if (currentDropDelay != -2000 && !dontDrop) {
 				currentDropDelay = -1000;
 			}
 
@@ -135,7 +135,7 @@ public class Ball : MonoBehaviour {
 				if (lives > 0) {
 					dropBall(dropLocation);
 				} else {
-					Destroy(gameObject);	
+					DisableDrop(dropLocation);
 				}
 			} else if (Collection.gameObject.name == "Green_Goal") {
 				//int points = (int)(score.GetComponent<Scores>().getScore () * goalPointPercentage);
@@ -145,7 +145,7 @@ public class Ball : MonoBehaviour {
 				if (lives > 0) {
 					dropBall(dropLocation);
 				} else {
-					Destroy(gameObject);	
+					DisableDrop(dropLocation);
 				}
 			} else if (Collection.gameObject.name == "Big Wall") {
 				rigidbody.AddForce(leftImpulse, ForceMode.Impulse);
@@ -189,7 +189,7 @@ public class Ball : MonoBehaviour {
 				if (lives > 0) {
 					dropBall(dropLocation);
 				} else {
-					Destroy(gameObject);	
+					DisableDrop(dropLocation);
 				}
 			} else if (Collection.gameObject.name == "Orange_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
 				//int points = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
@@ -199,7 +199,7 @@ public class Ball : MonoBehaviour {
 				if (lives > 0) {
 					dropBall(dropLocation);
 				} else {
-					Destroy(gameObject);	
+					DisableDrop(dropLocation);
 				}
 			} else if (Collection.gameObject.name == "Big Wall") {
 				rigidbody.AddForce(rightImpulse, ForceMode.Impulse);
@@ -230,5 +230,11 @@ public class Ball : MonoBehaviour {
 		rigidbody.constraints = RigidbodyConstraints.None;
 		collider.isTrigger = true;
 		rigidbody.AddForce(-rigidbody.velocity + new Vector3(0, dropSpeed, 0), ForceMode.Impulse);
+	}
+
+	void DisableDrop(Vector3 location) {
+		rigidbody.transform.position = location;
+		rigidbody.AddForce(-rigidbody.velocity, ForceMode.Impulse);
+		dontDrop = true;
 	}
 }

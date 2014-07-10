@@ -40,20 +40,20 @@ public class Player : MonoBehaviour {
 
 			case 1:
 				AIEnabled = true;
-				reactionTime = 0.75f;
-				accuracy = 1.0f;
+				reactionTime = 0.5f;
+				accuracy = 0.2f;
 				break;
 
 			case 2:
 				AIEnabled = true;
-				reactionTime = 0.4f;
-				accuracy = 0.5f;
+				reactionTime = 0.3f;
+				accuracy = 0.1f;
 				break;
 
 			case 3:
 				AIEnabled = true;
-				reactionTime = 0.2f;
-				accuracy = 0.1f;
+				reactionTime = 0.1f;
+				accuracy = 0.025f;
 				break;
 			}
 		} else {
@@ -64,20 +64,20 @@ public class Player : MonoBehaviour {
 				
 			case 1:
 				AIEnabled = true;
-				reactionTime = 0.75f;
-				accuracy = 1.0f;
+				reactionTime = 0.5f;
+				accuracy = 0.2f;
 				break;
 				
 			case 2:
 				AIEnabled = true;
-				reactionTime = 0.4f;
-				accuracy = 0.5f;
+				reactionTime = 0.3f;
+				accuracy = 0.1f;
 				break;
 				
 			case 3:
 				AIEnabled = true;
-				reactionTime = 0.2f;
-				accuracy = 0.1f;
+				reactionTime = 0.1f;
+				accuracy = 0.025f;
 				break;
 			}
 		}
@@ -92,11 +92,11 @@ public class Player : MonoBehaviour {
 			if (reactionTimer <= 0f) {
 				reactionTimer = reactionTime;
 				
-				Vector3 b1pos = b1.transform.position + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
-				Vector3 b2pos = b2.transform.position + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
+				Vector3 b1pos = b1.transform.position;// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
+				Vector3 b2pos = b2.transform.position;// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
 				
-				Vector3 b1vel = b1.rigidbody.velocity + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
-				Vector3 b2vel = b2.rigidbody.velocity + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
+				Vector3 b1vel = b1.rigidbody.velocity * (1 + Random.Range(-accuracy, accuracy));// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
+				Vector3 b2vel = b2.rigidbody.velocity * (1 + Random.Range(-accuracy, accuracy));// + new Vector3 (Random.Range (-accuracy / 2f, accuracy / 2f), 0, Random.Range (-accuracy / 2f, accuracy / 2f));
 
 				float z = transform.position.z;
 				float x = transform.position.x;

@@ -123,14 +123,14 @@ public class ScoreScreen : MonoBehaviour {
 
 			//Green AI selections
 			GUI.Label(new Rect(Screen.width / 4 - 60, Screen.height / 2, 256, 256), "Player  1", labelG);
-			//greenAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 + 40, 128, 128), greenAISelection, AIOptions, 1, checkboxL);
+			greenAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 - 60, Screen.height / 2 + 40, 128, 128), greenAISelection, AIOptions, 1, checkboxL);
 
 			//Orange lives selections
 			orangeLivesSelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 48, 128, 64), orangeLivesSelection, livesOptions, 1, checkboxL);
 
 			//Orange AI selections
 			GUI.Label(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2, 256, 256), "Player  2", labelO);
-			//orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 + 40, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
+			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 + 40, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
 		}
 	}
 
