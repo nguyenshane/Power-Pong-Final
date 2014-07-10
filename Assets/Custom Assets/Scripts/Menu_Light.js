@@ -41,7 +41,7 @@ var activate = true;
       if(Input.GetMouseButtonDown(0)){
       	if(y>-0.3 && y<-0.18){
 			audio.Play();
-			Debug.Log("Pressed Play");
+			//Debug.Log("Pressed Play");
 			Application.LoadLevel("Level1");
 	 	}else if(y>-0.09 && y<0.09){
 			audio.Play();
@@ -50,14 +50,14 @@ var activate = true;
 	 		var linkToScript2 = GameObject.Find("Options Menu Light").GetComponent(Options_Light);
 	 		linkToScript2.activate = true;
 	 		activate = false;
-			Debug.Log("Pressed Options");
+			//Debug.Log("Pressed Options");
 		} else if(y>0.19 && y<0.3){
 			audio.Play();
 			GameObject.Find("Camera").GetComponent(Menu_Camera).ToCredits();
 	 		GameObject.Find("Credits Menu Light").GetComponent(Credits_Light).activate = true;
 	 		activate = false;
-			Debug.Log("Pressed Credits");
-		} else Debug.Log("Outside");
+			//Debug.Log("Pressed Credits");
+		} //else Debug.Log("Outside");
 	}
 } else {
 		collider.isTrigger = false;

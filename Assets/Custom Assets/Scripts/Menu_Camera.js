@@ -18,7 +18,7 @@ function Update () {
 	//Debug.Log("target=" + target);
 	
 	if(target == 0.0) {
-		Debug.Log("target=" + target);
+		//Debug.Log("target=" + target);
 		
 		if (Time.time > delay){
 			GameObject.Find("Main Menu Light").GetComponent(Menu_Light).activate = true;

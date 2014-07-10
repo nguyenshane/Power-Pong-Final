@@ -45,11 +45,11 @@ public class ScoreScreen : MonoBehaviour {
 	void OnGUI() {
 		if (showing == true) {
 			if (greenWins >= maxLevels / 2 + maxLevels % 2) {
-				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*5), "G R E E N    W I N S!", boxG);
+				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "G R E E N    W I N S!", boxG);
 			} else if (orangeWins  >= maxLevels / 2 + maxLevels % 2) {
-				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*5), "O R A N G E    W I N S!", boxO);
+				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "O R A N G E    W I N S!", boxO);
 			}  else {
-				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*5), "S  t a  t u  s", box);
+				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "S  t a  t u  s", box);
 			}
 
 			//GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 120, width, 40), "Match    Lives: ", label);
@@ -96,7 +96,7 @@ public class ScoreScreen : MonoBehaviour {
 			currentLevel = 0;
 		
 		} else if (orangeWins >= maxLevels / 2 + maxLevels % 2) {
-		//	orangeTotalWins++;
+			//orangeTotalWins++;
 			win = true;
 			currentLevel = 0;
 		

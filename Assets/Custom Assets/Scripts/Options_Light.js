@@ -38,41 +38,41 @@ function Update(){
       		// Audio Low
       		audiovolume = 0.2;
       		GameObject.Find("Main Menu Light").audio.Play();      		
-			Debug.Log("Pressed Audio Low");
+			//Debug.Log("Pressed Audio Low");
 	 	}else if(x<0.045 && x>-0.065 && y>0.716){
 			// Audio Medium
 			audiovolume = 0.5;
       		GameObject.Find("Main Menu Light").audio.Play();   
-			Debug.Log("Pressed Audio Medium");
+			//Debug.Log("Pressed Audio Medium");
 		}else if(x<-0.013 && y>0.716){
       		// Audio High
       		audiovolume = 1;
       		GameObject.Find("Main Menu Light").audio.Play();   
-			Debug.Log("Pressed Audio High");
+			//Debug.Log("Pressed Audio High");
 		}else if(x>0.103 && y>0.67 && y<0.7){
       		// Brightness Low
       		brightness = 0.5;
       		GameObject.Find("Main Menu Light").audio.Play();    
-			Debug.Log("Pressed Brightness Dark");
+			//Debug.Log("Pressed Brightness Dark");
 		}else if(x<0.05 && x>-0.055 && y<0.716 && y>0.698){
       		// Brightness Medium
       		brightness = 1.0;
       		GameObject.Find("Main Menu Light").audio.Play();    
-			Debug.Log("Pressed Brightness Medium");
+			//Debug.Log("Pressed Brightness Medium");
 		}else if(x<-0.11 && y>0.675 && y<0.7){
       		// Brightness High
       		brightness = 1.5;
       		GameObject.Find("Main Menu Light").audio.Play();    
-			Debug.Log("Pressed Brightness Bright");
+			//Debug.Log("Pressed Brightness Bright");
 		}else if(x<0.08 && x>-0.09 && y<0.675){
 			// Back
-			Debug.Log("Pressed Back");
+			//Debug.Log("Pressed Back");
 			GameObject.Find("Main Menu Light").audio.Play(); 
 	 		var linkToScript = GameObject.Find("Camera").GetComponent(Menu_Camera);
 	 		linkToScript.ToMain();
 	 		activate = false;
 			
-		} else Debug.Log("Outside options");
+		} //else Debug.Log("Outside options");
 	}
   }
   else collider.isTrigger = false;
