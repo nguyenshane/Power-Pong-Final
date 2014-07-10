@@ -179,7 +179,7 @@ public class ScoreScreen : MonoBehaviour {
 		Application.LoadLevel(currentLevel);
 	}
 		
-		public int getCurrentLevel() {
+	public int getCurrentLevel() {
 		return currentLevel;
 	}
 

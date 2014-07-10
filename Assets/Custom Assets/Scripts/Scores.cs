@@ -37,6 +37,7 @@ public class Scores : MonoBehaviour {
 				maxLives = 5;
 				break;
 			}
+			scoreScreen.greenLives = maxLives;
 		} else {
 			switch (ScoreScreen.orangeLivesSelection) {
 			case 0:
@@ -47,6 +48,7 @@ public class Scores : MonoBehaviour {
 				maxLives = 5;
 				break;
 			}
+			scoreScreen.orangeLives = maxLives;
 		}
 
 		score = 0;
