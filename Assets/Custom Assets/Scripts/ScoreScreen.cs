@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ScoreScreen : MonoBehaviour {
 
+	public bool showFPS;
+	public int maxLevels;
+
 	public GUIStyle blank;
 	public GUIStyle box;
 	public GUIStyle boxG;
@@ -14,8 +17,6 @@ public class ScoreScreen : MonoBehaviour {
 	public Texture level1, level2, level3;
 
 	public int currentLevel;
-	public int maxLevels;
-
 	public int greenLives, orangeLives, greenScore, orangeScore, greenWins, orangeWins, greenTotalWins, orangeTotalWins;
 
 	static int instanceCount = 0;
@@ -56,6 +57,7 @@ public class ScoreScreen : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		//Showing level selection menu
 		if (showing == true) {
 			if (greenWon) {
 				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "G R E E N    W I N S!", boxG);
@@ -150,6 +152,7 @@ public class ScoreScreen : MonoBehaviour {
 			//Orange AI selections
 			GUI.Label(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 140, 256, 256), "Player  2", labelO);
 			orangeAISelection = GUI.SelectionGrid(new Rect(Screen.width / 4 * 3 - 60, Screen.height / 2 - 100, 128, 128), orangeAISelection, AIOptions, 1, checkboxL);
+		//Showing escape menu
 		} else if (escShowing) {
 			GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "S  t a  t u  s", box);
 			
@@ -171,6 +174,11 @@ public class ScoreScreen : MonoBehaviour {
 			
 			GUI.Label(new Rect(Screen.width / 2 - width / 2, Screen.height / 2 - 200, width, 40), "Current    Wins: ", label);
 			GUI.Label(new Rect(Screen.width / 2 + width / 2, Screen.height / 2 - 200, width, 40), greenWins.ToString() + " : " + orangeWins.ToString(), label);
+		//In-game
+		} else {
+			if (showFPS) {
+				GUI.Label(new Rect(24, 24, 200, 40), "FPS: " + (60 / Time.deltaTime).ToString(), label);
+			}
 		}
 	}
 
