@@ -44,7 +44,7 @@ public class ScoreScreen : MonoBehaviour {
 		levelSelection = -1;
 		showing = escShowing = false;
 		DontDestroyOnLoad(transform.gameObject);
-		activate();
+		activateBefore();
 	}
 	
 	// Update is called once per frame
@@ -158,9 +158,11 @@ public class ScoreScreen : MonoBehaviour {
 				deactivateEscMenu();
 			}
 
-			//Exit button
+			//Return to menu button
 			if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 100, 240, 60), "Menu", button)) {
 				deactivateEscMenu();
+				instanceCount--;
+				Destroy(gameObject);
 				Application.LoadLevel(0);
 			}
 
@@ -211,6 +213,13 @@ public class ScoreScreen : MonoBehaviour {
 			currentLevel++;
 		}
 
+		levelSelection = -1;
+		Screen.showCursor = true;
+		Time.timeScale = 0;
+		showing = true;
+	}
+
+	public void activateBefore() {
 		levelSelection = -1;
 		Screen.showCursor = true;
 		Time.timeScale = 0;
