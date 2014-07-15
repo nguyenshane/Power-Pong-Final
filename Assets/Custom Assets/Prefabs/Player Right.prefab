@@ -102,8 +102,13 @@ MonoBehaviour:
   maxSize: 16
   minSize: 4
   friction: .600000024
-  ball: {fileID: 100000, guid: 1e3ce4bb331f1ea438596c1a082a98d9, type: 2}
+  ball1: {fileID: 0}
+  ball2: {fileID: 0}
   player: 1
+  AIEnabled: 0
+  reactionTime: 0
+  accuracy: 0
+  interceptRange: 15
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
