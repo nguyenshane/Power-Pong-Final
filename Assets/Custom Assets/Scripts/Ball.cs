@@ -42,7 +42,7 @@ public class Ball : MonoBehaviour {
 		rightImpulse_F = new Vector3(24, 0, Random.Range (-3.0f, 3.0f));
 
 		if (ball == eBall.F_Left || ball == eBall.F_Right) {
-			Destroy(gameObject, 2.5f);
+			Destroy(gameObject, 3.5f);
 			initialDropDelay = -2000;
 			if (ball == eBall.F_Right) rigidbody.AddForce(leftImpulse_F, ForceMode.Impulse);
 			else rigidbody.AddForce(rightImpulse_F, ForceMode.Impulse);

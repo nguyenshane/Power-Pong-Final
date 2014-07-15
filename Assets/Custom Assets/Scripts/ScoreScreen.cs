@@ -62,7 +62,7 @@ public class ScoreScreen : MonoBehaviour {
 			if (greenWon) {
 				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "G R E E N    W I N S!", boxG);
 
-				//Continue button
+				//Return to menu button
 				if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 120, 240, 60), "Main  Menu", button)) {
 					greenScore = 0;
 					orangeScore = 0;
@@ -73,12 +73,14 @@ public class ScoreScreen : MonoBehaviour {
 					showing = false;
 					Time.timeScale = 1;
 					Screen.showCursor = false;
+					instanceCount--;
+					Destroy(gameObject);
 					Application.LoadLevel(0);
 				}
 			} else if (orangeWon) {
 				GUI.Box(new Rect(padding, padding, Screen.width - padding*2, Screen.height - padding*2), "O R A N G E    W I N S!", boxO);
 
-				//Continue button
+				//Return to menu button
 				if (GUI.Button(new Rect(Screen.width / 2 - 100, Screen.height - 120, 240, 60), "Main  Menu", button)) {
 					greenScore = 0;
 					orangeScore = 0;
@@ -89,6 +91,8 @@ public class ScoreScreen : MonoBehaviour {
 					showing = false;
 					Time.timeScale = 1;
 					Screen.showCursor = false;
+					instanceCount--;
+					Destroy(gameObject);
 					Application.LoadLevel(0);
 				}
 			}  else {

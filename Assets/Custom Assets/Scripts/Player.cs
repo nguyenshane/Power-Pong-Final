@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 	public float inputSpeed = 0f;
 	public float maxSize = 16f;
 	public float minSize = 4f;
-	public float friction = 0.6f;
+	public float friction = 0.8f;
 	public GameObject ball1;
 	public GameObject ball2;
 	public ePlayer player;
