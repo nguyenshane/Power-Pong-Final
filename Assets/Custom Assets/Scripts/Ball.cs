@@ -224,23 +224,23 @@ public class Ball : MonoBehaviour {
 		} 
 		//FIREBALLS
 		else if (ball == eBall.F_Left){
-			if (Collection.gameObject.name == "Brick") {
+			if (Collection.gameObject.name == "Brick" || Collection.gameObject.name == "Brick_G" || Collection.gameObject.name == "Brick_O") {
 				audio.Play();
 				Destroy(Collection.gameObject);
 				rigidbody.AddForce(-rigidbody.velocity + rightImpulse_F, ForceMode.Impulse);
 				score.GetComponent<Scores>().AddScore(normalBrickScore);
-			} else {
+			} else if (Collection.gameObject.name != "Ground") {
 				Destroy(gameObject);
 			}
 		}
 		//FIREBALLS
 		else if (ball == eBall.F_Right){
-			if (Collection.gameObject.name == "Brick") {
+			if (Collection.gameObject.name == "Brick" || Collection.gameObject.name == "Brick_G" || Collection.gameObject.name == "Brick_O") {
 				audio.Play();
 				Destroy(Collection.gameObject);
 				rigidbody.AddForce(-rigidbody.velocity + leftImpulse_F, ForceMode.Impulse);
 				score.GetComponent<Scores>().AddScore(normalBrickScore);
-			} else {
+			} else if (Collection.gameObject.name != "Ground") {
 				Destroy(gameObject);
 			}
 		}
