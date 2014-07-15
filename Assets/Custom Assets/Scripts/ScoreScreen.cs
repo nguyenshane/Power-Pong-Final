@@ -177,7 +177,7 @@ public class ScoreScreen : MonoBehaviour {
 		//In-game
 		} else {
 			if (showFPS) {
-				GUI.Label(new Rect(24, 24, 200, 40), "FPS: " + (60 / Time.deltaTime).ToString(), label);
+				GUI.Label(new Rect(24, 24, 200, 40), "FPS: " + (1 / Time.deltaTime).ToString(), label);
 			}
 		}
 	}
