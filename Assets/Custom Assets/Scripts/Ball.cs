@@ -128,7 +128,7 @@ public class Ball : MonoBehaviour {
 					                               Collection.gameObject.GetComponent<Player>().speed), ForceMode.Impulse);
 				}
 			//Other goal
-			} else if (Collection.gameObject.name == "Orange_Goal") {
+			} else if (Collection.gameObject.name == "Orange_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
 				int points = (int)(otherScore.GetComponent<Scores>().getScore () * goalPointPercentage);
 				if (!neutral) score.GetComponent<Scores>().AddScore(points);
 				//otherScore.GetComponent<Scores>().AddScore(-1*points);
@@ -139,9 +139,11 @@ public class Ball : MonoBehaviour {
 				} else {
 					if (!neutral) convertToNeutral(dropLocation);
 					else dropBall(dropLocation);
+					int pointDeduction = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
+					score.GetComponent<Scores>().AddScore(-pointDeduction);
 				}
 			//Own goal
-			} else if (Collection.gameObject.name == "Green_Goal") {
+			} else if (Collection.gameObject.name == "Green_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
 				//int points = (int)(score.GetComponent<Scores>().getScore () * goalPointPercentage);
 				//score.GetComponent<Scores>().AddScore(-1*points);
 				score.GetComponent<Scores>().RemoveLife();
@@ -151,6 +153,8 @@ public class Ball : MonoBehaviour {
 				} else {
 					if (!neutral) convertToNeutral(dropLocation);
 					else dropBall(dropLocation);
+					int pointDeduction = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
+					score.GetComponent<Scores>().AddScore(-pointDeduction);
 				}
 			} else if (Collection.gameObject.name == "Big Wall") {
 				rigidbody.AddForce(leftImpulse, ForceMode.Impulse);
@@ -185,7 +189,8 @@ public class Ball : MonoBehaviour {
 					rigidbody.AddForce(new Vector3(0, 0, Collection.gameObject.GetComponent<Player>().friction * (Mathf.Abs(transform.localPosition.z - player.transform.localPosition.z) / (player.transform.localScale.z / 2)) * Collection.gameObject.GetComponent<Player>().inputSpeed * 
 					                               Collection.gameObject.GetComponent<Player>().speed), ForceMode.Impulse);
 				}
-			} else if (Collection.gameObject.name == "Green_Goal") {
+			//Other goal
+			} else if (Collection.gameObject.name == "Green_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
 				int points = (int)(otherScore.GetComponent<Scores>().getScore() * goalPointPercentage);
 				if (!neutral) score.GetComponent<Scores>().AddScore(points);
 				//otherScore.GetComponent<Scores>().AddScore(-1*points);
@@ -196,7 +201,10 @@ public class Ball : MonoBehaviour {
 				} else {
 					if (!neutral) convertToNeutral(dropLocation);
 					else dropBall(dropLocation);
+					int pointDeduction = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
+					score.GetComponent<Scores>().AddScore(-pointDeduction);
 				}
+			//Own goal
 			} else if (Collection.gameObject.name == "Orange_Goal" && ball != eBall.F_Left && ball != eBall.F_Right) {
 				//int points = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
 				//score.GetComponent<Scores>().AddScore(-1*points);
@@ -207,6 +215,8 @@ public class Ball : MonoBehaviour {
 				} else {
 					if (!neutral) convertToNeutral(dropLocation);
 					else dropBall(dropLocation);
+					int pointDeduction = (int)(score.GetComponent<Scores>().getScore() * goalPointPercentage);
+					score.GetComponent<Scores>().AddScore(-pointDeduction);
 				}
 			} else if (Collection.gameObject.name == "Big Wall") {
 				rigidbody.AddForce(rightImpulse, ForceMode.Impulse);
